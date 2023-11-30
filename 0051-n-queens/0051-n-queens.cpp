@@ -25,7 +25,7 @@ public:
         string s(n,'.');
         for(int i=0;i<n;i++)
             board[i]=s;
-        vector<int>left(n,0),up(2*n-1,0),down(2*n-1,0);
+        vector<int>left(n,0),up(2*n-1,0),down(2*n-1,0); //crearing hashing for dealing with S.C.
         solve(0,board,ans,left,up,down,n);
         return ans;
     }
