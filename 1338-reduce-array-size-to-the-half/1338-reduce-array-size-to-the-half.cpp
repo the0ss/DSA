@@ -9,18 +9,18 @@ public:
         for(auto it:arr){
             m[it]++;
         }
-        vector<pair<int,int>>v;
+        vector<int>counting(n+1,0);
         for(auto it:m){
-            v.push_back({it.second,it.first});
+            counting[it.second]++;
         }
-        sort(v.begin(),v.end(),cmp);
+        // sort(v.begin(),v.end(),cmp);
         int ans=0;
-        int sum=0;
-        for(auto it:v){
-            sum+=it.first;
+        int removed=0,half=n/2,freq=n;
+        while(removed<half){
             ans++;
-            if(sum>=n/2)
-                break;
+            while(counting[freq]==0) --freq;
+            removed+=freq;
+            --counting[freq];
         }
         return ans;
     }
