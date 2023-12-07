@@ -1,7 +1,7 @@
 class Solution {
-    static bool cmp(pair<int,int>a,pair<int,int>b){
-        return a.first>b.first;
-    }
+    // static bool cmp(pair<int,int>a,pair<int,int>b){
+    //     return a.first>b.first;
+    // }
 public:
     int minSetSize(vector<int>& arr) {
         int n=arr.size();
@@ -9,7 +9,7 @@ public:
         for(auto it:arr){
             m[it]++;
         }
-        vector<int>counting(n+1,0);
+        vector<int>counting(n+1,0); // Using Counting Sort // TC : O(n)
         for(auto it:m){
             counting[it.second]++;
         }
