@@ -21,7 +21,7 @@ public:
     }
     
     string highestRated(string cuisine) {
-        pair<int,string> p= *(s[cuisine].begin());
+        auto p= *(s[cuisine].begin());
         return p.second;
     }
 };
