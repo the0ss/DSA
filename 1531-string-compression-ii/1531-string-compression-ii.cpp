@@ -2,7 +2,7 @@ class Solution {
 public:
     int getLengthOfOptimalCompression(string s, int k) {
         int n = s.length();
-        vector<vector<int>> dp(110, vector<int>(110, 9999)); // Initializing a 2D vector 'dp' of size 110x110 with value 9999
+        vector<vector<int>> dp(n+1, vector<int>(k+1, 9999)); // Initializing a 2D vector 'dp' of size 110x110 with value 9999
         dp[0][0] = 0; // Initializing the base case where no characters and deletions exist
 
         for (int i = 1; i <= n; i++) {
