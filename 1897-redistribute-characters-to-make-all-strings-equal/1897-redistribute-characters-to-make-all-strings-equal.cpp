@@ -1,7 +1,7 @@
 class Solution {
 public:
     bool makeEqual(vector<string>& words) {
-        unordered_map<char,int>m;
+        map<char,int>m;
         for(auto word:words){
             for(auto it:word)
                 m[it]++;
