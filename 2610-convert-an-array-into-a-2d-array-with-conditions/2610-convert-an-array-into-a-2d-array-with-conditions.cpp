@@ -11,9 +11,8 @@ public:
         vector<vector<int>>ans(maxi);
         for(int i=1;i<201;i++){
             int x=freq[i];
-            while(x){
-                ans[x-1].push_back(i);
-                x--;
+            while(x--){
+                ans[x].push_back(i);
             }
         }
         return ans;
