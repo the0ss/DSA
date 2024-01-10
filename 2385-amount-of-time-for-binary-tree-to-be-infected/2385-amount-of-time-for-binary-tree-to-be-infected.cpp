@@ -32,7 +32,7 @@ public:
         q.push(start);
         seen[start]=true;
         int time=0;
-        for(;q.size();time++){
+        while(!q.empty()) {
             int n= q.size();
             while(n--){
                 auto node= q.front();  q.pop();
@@ -43,6 +43,7 @@ public:
                     }
                 }
             }
+            time++;
         }
         return time-1;
     }
