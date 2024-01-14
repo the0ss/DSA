@@ -8,8 +8,8 @@ public:
         for(char c:word2)
             w2[c-'a']++,w4[c-'a'] = 1;
         
-        sort(begin(w1),end(w1));
-        sort(begin(w2),end(w2));
+        sort(w1.begin(),w1.end());
+        sort(w2.begin(),w2.end());
         return w1==w2&&w3==w4;
     }
 };
