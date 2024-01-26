@@ -1,29 +1,28 @@
 class Solution {
-private:
+    int mod=1e9+7;
+    int dir[4][2]={{-1,0},{1,0},{0,-1},{0,1}};
+    int row,col;
     int dp[52][52][52];
-    int mod = 1000000007;
-    vector<pair<int, int> > moves = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
-    int dfs(int i, int j, int m, int n, int maxMove)
-    {
-        if(i>= m || i < 0 || j>= n || j < 0)
+    int dfs(int i,int j,int maxMove){
+        if(i<0||i>=row||j<0||j>=col)
             return 1;
-        
-        if(maxMove <= 0)
+        if(maxMove<=0)
             return 0;
-        
-        int &ret = dp[i][j][maxMove];
-        
-        if(ret != -1)
-            return ret;
-        
-        ret = 0;
-        for(auto move: moves)
-            ret = (ret + dfs(i+move.first, j+move.second, m, n, maxMove-1)) % mod;
-        return ret;
+        int &res=dp[maxMove][i][j];
+        if(res!=-1)
+            return res;
+        res=0;
+        for(int s=0;s<4;s++){
+            int x=i+dir[s][0];
+            int y=j+dir[s][1];
+            res=(res+dfs(x,y,maxMove-1))%mod;
+        }
+        return res;
     }
 public:
     int findPaths(int m, int n, int maxMove, int startRow, int startColumn) {
-        memset(dp, -1, sizeof dp);
-        return dfs(startRow, startColumn, m, n, maxMove);
+        memset(dp,-1, sizeof dp);
+        row=m,col=n;
+        return dfs(startRow,startColumn,maxMove);
     }
 };
