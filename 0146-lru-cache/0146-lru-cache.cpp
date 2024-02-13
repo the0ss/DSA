@@ -14,7 +14,7 @@ public:
             v.erase(m[key]);
             v.push_front(key);
             m[key]=v.begin();
-            m1[key]=value;
+            // m1[key]=value;
             return value;
         }
         return -1;
