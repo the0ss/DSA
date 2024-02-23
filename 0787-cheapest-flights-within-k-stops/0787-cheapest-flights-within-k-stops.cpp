@@ -22,12 +22,12 @@ public:
             
                 //Optimization to avoid TLE
             if(dist[curr]<stop) continue;
-                 dist[curr]=stop;
+            dist[curr]=stop;
 
             if(stop >k ) continue;
             
-                for( auto next : adjList[curr] )
-                    minHeap.push( { cost+next.second, next.first, stop+1 });
+            for( auto next : adjList[curr] )
+                minHeap.push( { cost+next.second, next.first, stop+1 });
         }
         return -1;
         
