@@ -20,7 +20,7 @@ public:
         vector<bool> visited(n,false);
         
         while(!q.empty()){
-            pair<int,int> curr = q.top();
+            auto curr = q.top();
             q.pop();
             
             int person = curr.second;
@@ -33,7 +33,7 @@ public:
             visited[person] = true;
 			
 			//iterate all the meetings of this person and add the potential new persons he can share secret with 
-            for(pair<int,int> neigh : graph[person]){
+            for(auto neigh : graph[person]){
                 if(!visited[neigh.first] && time <= neigh.second){
                     q.push({neigh.second,neigh.first});
                 }
