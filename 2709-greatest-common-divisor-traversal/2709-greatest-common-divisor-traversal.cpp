@@ -10,8 +10,8 @@ public:
             if(!visitedPrime[prime]){
                 visitedPrime[prime] = true;
                 for(auto &index1 : prime2index[prime]){
-                    if(visitedIndex[index1] == true) continue;
-                    dfs(index1, visitedIndex, visitedPrime);
+                    if(!visitedIndex[index1])
+                        dfs(index1, visitedIndex, visitedPrime);
                 }
             }
         }
