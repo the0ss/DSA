@@ -7,12 +7,12 @@ public:
         visitedIndex[index] = true;
 
         for(auto &prime : index2prime[index]){
-            if(visitedPrime[prime] == true) 
-                continue;
-            visitedPrime[prime] = true;
-            for(auto &index1 : prime2index[prime]){
-                if(visitedIndex[index1] == true) continue;
-                dfs(index1, visitedIndex, visitedPrime);
+            if(!visitedPrime[prime]){
+                visitedPrime[prime] = true;
+                for(auto &index1 : prime2index[prime]){
+                    if(visitedIndex[index1] == true) continue;
+                    dfs(index1, visitedIndex, visitedPrime);
+                }
             }
         }
     }
