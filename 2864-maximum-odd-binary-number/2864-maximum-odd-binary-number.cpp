@@ -6,18 +6,7 @@ public:
         for(auto it:s)
             if(it=='1')
                 ones++;
-        string ans="";
-        if(ones==1){
-            sort(s.begin(),s.end());
-            return s;
-        }
-        if(ones==n)
-            return s;
-        for(int i=0;i<ones-1;i++)
-            ans+='1';
-        for(int i=0;i<n-ones;i++)
-            ans+='0';
-        ans+='1';
-        return ans;
+        int zeros=n-ones;
+        return string(ones-1,'1')+string(zeros,'0')+'1';
     }
 };
