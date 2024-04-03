@@ -3,16 +3,22 @@ type ToBeOrNotToBe = {
     notToBe: (val: any) => boolean;
 };
 
-const expect = (val: any): ToBeOrNotToBe => ({
-    toBe: (otherVal) => {
-        if(val===otherVal) return true;
-        throw "Not Equal";
-    },
-    notToBe: (otherVal) => {
-        if(val!==otherVal) return true;
-        throw "Equal";
+function expect(val: any): ToBeOrNotToBe {
+    return {
+        toBe(val2){
+            if(val === val2){
+                return true
+           
+            } else throw "Not Equal"
+        },
+        notToBe(val2){
+            if(val !== val2){
+                return true
+           
+            } else throw "Equal"
+        }
     }
-});
+};
 
 /**
  * expect(5).toBe(5); // true
