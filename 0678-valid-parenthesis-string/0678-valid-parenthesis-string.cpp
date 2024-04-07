@@ -4,7 +4,7 @@ public:
         int l=0,r=0;
         for(auto it:s){
             l+=it=='('?1:-1;
-            r+=it!=')'?1:-1;
+            r+=it==')'?-1:1;
             if(r<0) break;
             l=max(l,0);
         }
