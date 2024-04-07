@@ -46,7 +46,7 @@ public:
         // }
         // return dfs(node,mp);
         if(node==NULL)
-        return NULL;
+            return NULL;
         queue<Node*> q;
         int visited[105];
         memset(visited, 0, sizeof(visited));
