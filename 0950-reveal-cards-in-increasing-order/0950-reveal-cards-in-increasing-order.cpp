@@ -1,8 +1,7 @@
 class Solution {
 public:
     vector<int> deckRevealedIncreasing(vector<int>& deck) {
-        sort(begin(deck),end(deck));
-        reverse(begin(deck),end(deck));
+        sort(rbegin(deck),rend(deck));
         int n=deck.size();
         vector<int>ans;
         for(int i=0;i<n;i++){
