@@ -11,7 +11,7 @@
  */
 class Solution {
 public:
-    string smallestFromLeaf(TreeNode* r,string s="") {  //bottom up works
+    string smallestFromLeaf(TreeNode* r,string s="") {  //top down works
         s = string(1, 'a' + r->val) + s;
         return r->left == r->right ? s : min(r->left ? smallestFromLeaf(r->left, s) : "|", 
             r->right ? smallestFromLeaf(r->right, s) : "|");
